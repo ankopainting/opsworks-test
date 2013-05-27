@@ -39,7 +39,7 @@ end
 node['nfs']['config']['client_templates'].each do |client_template|
   template client_template do
     mode 0644
-    notifies :restart, "service[portmap]"
-    notifies :restart, "service[nfslock]"
+    notifies :restart, resources(:service => "portmap") #service[portmap]"
+    notifies :restart, resources(:service => 'nfslock')  #{}"service[nfslock]"
   end
 end
