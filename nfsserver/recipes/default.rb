@@ -8,6 +8,7 @@
 #
 
 include_recipe "nfs::server"
+include_recipe "line"
 
 directory "/web" do
 	owner "root"
