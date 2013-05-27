@@ -12,14 +12,14 @@ include_recipe "nfs::server"
 directory "/web" do
 	owner "root"
 	group "www-data"
-	mode 04664
+	mode 02664
 	action :create
 end
 
 directory "/web/sites/html/default" do
 	owner "root"
 	group "www-data"
-	mode 04664
+	mode 02664
 	recursive true
 	action :create
 end
@@ -27,7 +27,7 @@ end
 directory "/web/sites/apps/default" do
 	owner "root"
 	group "www-data"
-	mode 04664
+	mode 02664
 	recursive true
 	action :create
 end
@@ -35,7 +35,7 @@ end
 directory "/web/configs/managed" do
 	owner "root"
 	group "root"
-	mode 04644
+	mode 02644
 	recursive true
 	action :create
 end
