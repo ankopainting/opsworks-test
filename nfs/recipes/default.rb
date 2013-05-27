@@ -39,7 +39,8 @@ end
 node['nfs']['config']['client_templates'].each do |client_template|
   template client_template do
     mode 0644
+    # NOTE opsworks wants resources(:service => "portmap") rather than "service[portmap]"
     notifies :restart, resources(:service => "portmap") #service[portmap]"
-    notifies :restart, resources(:service => 'nfslock')  #{}"service[nfslock]"
+    notifies :restart, resources(:service => 'nfslock')  
   end
 end

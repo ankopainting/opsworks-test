@@ -8,3 +8,7 @@
 #
 
 Chef::Log.info("I am a message from the #{recipe_name} recipe in the #{cookbook_name} cookbook.")
+
+
+# opendeploy needs expect so it can run the automated installer automatically
+include_recipe "expect"
