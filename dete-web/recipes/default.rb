@@ -10,6 +10,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
+include_recipe 'apache2'
+
 package "libapache2-mod-macro" do
 	action :install
 	notifies :restart, resources(:service => 'apache2') 
