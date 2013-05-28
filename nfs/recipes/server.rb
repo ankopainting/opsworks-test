@@ -34,6 +34,7 @@ end
 # Configure nfs-server components
 template node['nfs']['config']['server_template'] do
   mode 0644
-  notifies :restart, "service[#{node['nfs']['service']['server']}]"
+  #notifies :restart, "service[#{node['nfs']['service']['server']}]"
+  notifies :restart, resources(:service => node['nfs']['service']['server']})
 end
 
