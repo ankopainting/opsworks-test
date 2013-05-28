@@ -42,7 +42,7 @@ directory "/web/configs/managed" do
 end
 
 nfs_export "/web" do
-	network '172.31.28.0/24'
+	network '172.31.0.0/16'
 	writeable false 
 	sync true
 	options ['no_root_squash']
