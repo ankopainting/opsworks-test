@@ -45,5 +45,5 @@ nfs_export "/web" do
 	network '172.31.0.0/16'
 	writeable false 
 	sync true
-	options ['no_root_squash']
+	options ['no_root_squash','no_subtree_check']
 end
