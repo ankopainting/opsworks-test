@@ -12,6 +12,14 @@ template "/var/www/index.html" do
 	source "index.html.erb"
 end
 
+directory "/web" do
+	owner "root"
+	group "www-data"
+	mode 02775
+	recursive true
+	action :create
+end
+
 node_handle = node['nfs']['server']
 node_handle += ":/web"
 
@@ -19,5 +27,5 @@ mount "/web" do
 	device node_handle
 	fstype "nfs"
 	options "ro"
-	#actions [:mount, :enable]
+	#actions [:mount, :enabled]
 end
