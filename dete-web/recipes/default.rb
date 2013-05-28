@@ -19,5 +19,5 @@ mount "/web" do
 	device node_handle
 	fstype "nfs"
 	options "ro"
-	actions [:mount, :enable]
+	#actions [:mount, :enable]
 end
