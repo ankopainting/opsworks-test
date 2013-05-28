@@ -2,10 +2,18 @@
 # Cookbook Name:: dete-web
 # Recipe:: default
 #
+#
+# sets up the web environment for a dete web server
+#
 # Copyright 2013, YOUR_COMPANY_NAME
 #
 # All rights reserved - Do Not Redistribute
 #
+
+package "libapache2-mod-macro" do
+	action :install
+	notifies :restart, resources(:service => 'apache2') 
+end
 
 template "/var/www/index.html" do
 	mode 0664
