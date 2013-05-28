@@ -13,14 +13,14 @@ include_recipe "line"
 directory "/web" do
 	owner "root"
 	group "www-data"
-	mode 02664
+	mode 02775
 	action :create
 end
 
 directory "/web/sites/html/default" do
 	owner "root"
 	group "www-data"
-	mode 02664
+	mode 02775
 	recursive true
 	action :create
 end
@@ -28,7 +28,7 @@ end
 directory "/web/sites/apps/default" do
 	owner "root"
 	group "www-data"
-	mode 02664
+	mode 02775
 	recursive true
 	action :create
 end
@@ -36,7 +36,7 @@ end
 directory "/web/configs/managed" do
 	owner "root"
 	group "root"
-	mode 02644
+	mode 02775
 	recursive true
 	action :create
 end
