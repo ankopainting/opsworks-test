@@ -17,6 +17,9 @@ package "libapache2-mod-macro" do
 	notifies :restart, resources(:service => 'apache2') 
 end
 
+# enable the macro module
+apache_module "macro"
+
 template "/var/www/index.html" do
 	mode 0664
 	source "index.html.erb"
