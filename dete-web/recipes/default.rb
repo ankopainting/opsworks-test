@@ -33,7 +33,7 @@ directory "/web" do
 	action :create
 end
 
-node_handle = node['nfs']['server']
+node_handle = (node[:content_repository_ip] or node['nfs']['server'])
 node_handle += ":/web"
 
 mount "/web" do
