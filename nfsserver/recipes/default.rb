@@ -25,6 +25,11 @@ directory "/web/sites/html/default" do
 	action :create
 end
 
+template "/web/sites/html/default/index.html" do
+	mode 0664
+	source "index.html.erb"
+end
+
 directory "/web/sites/apps/default" do
 	owner "root"
 	group "www-data"
