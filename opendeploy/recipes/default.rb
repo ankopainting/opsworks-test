@@ -7,7 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
-Chef::Log.info("I am a message from the #{recipe_name} recipe in the #{cookbook_name} cookbook.")
+#Chef::Log.info("I am a message from the #{recipe_name} recipe in the #{cookbook_name} cookbook.")
 
 
 # opendeploy needs expect so it can run the automated installer automatically

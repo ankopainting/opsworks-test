@@ -10,14 +10,9 @@
 include_recipe "nfs::server"
 include_recipe "line"
 
-directory "/web" do
-	owner "root"
-	group "www-data"
-	mode 02775
-	action :create
-end
+disk_location = "/mnt"
 
-directory "/web/sites/html/default" do
+directory "#{disk_location}/web" do
 	owner "root"
 	group "www-data"
 	mode 02775
@@ -25,12 +20,20 @@ directory "/web/sites/html/default" do
 	action :create
 end
 
-template "/web/sites/html/default/index.html" do
+directory "#{disk_location}/web/sites/html/default" do
+	owner "root"
+	group "www-data"
+	mode 02775
+	recursive true
+	action :create
+end
+
+template "#{disk_location}/web/sites/html/default/index.html" do
 	mode 0664
 	source "index.html.erb"
 end
 
-directory "/web/sites/apps/default" do
+directory "#{disk_location}/web/sites/apps/default" do
 	owner "root"
 	group "www-data"
 	mode 02775
@@ -38,7 +41,7 @@ directory "/web/sites/apps/default" do
 	action :create
 end
 
-directory "/web/configs/managed" do
+directory "#{disk_location}/web/configs/managed" do
 	owner "root"
 	group "root"
 	mode 02775
@@ -46,7 +49,7 @@ directory "/web/configs/managed" do
 	action :create
 end
 
-nfs_export "/web" do
+nfs_export "#{disk_location}/web" do
 	network '172.31.0.0/16'
 	writeable false 
 	sync true
