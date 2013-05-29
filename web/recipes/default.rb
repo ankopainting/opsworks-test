@@ -53,7 +53,7 @@ end
 # mount directory
 
 node_handle = node[:content_repository_ip] # or node['nfs']['server'])
-node_handle += ":/web"
+node_handle += ":/mnt/web"
 
 mount "/web" do
 	device node_handle
