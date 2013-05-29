@@ -15,7 +15,7 @@ ff02::3 ip6-allhosts
 127.0.0.1 <%= node[:opsworks][:instance][:hostname] %>.localdomain <%= node[:opsworks][:instance][:hostname] %>
 <% seen = [] -%>
 <% node[:opsworks][:layers].each do |layer_name, layer_config| -%>
-# <%= layer_name %>
+# <%= layer_name %> layer
 <% layer_config[:instances].each do |instance_name, instance_config| -%>
 <% if !seen.include?(instance_name) && instance_config[:private_ip] -%>
 <%= Resolv.getaddress(instance_config[:private_ip]) %> <%= instance_name %> <%= instance_name %>.<%= layer_name %>
