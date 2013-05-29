@@ -20,6 +20,21 @@ end
 # enable the macro module
 apache_module "macro"
 
+template "#{node[:apache][:dir]}/conf.d/macro" do
+	mode 0664
+	source "macro.conf.erb"
+	notifies :reload, resources(:service => 'apache2') 
+end
+
+site = "education.qld.gov.au"
+template "#{node[:apache][:dir]}/sites-available/#{site}" do
+	mode 0664
+	source "standard-site.erb"
+	variables(:sitename => site)
+end
+apache_site site
+
+
 template "/var/www/index.html" do
 	mode 0664
 	source "index.html.erb"

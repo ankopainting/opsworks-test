@@ -1,0 +1,25 @@
+<VirtualHost *:80>
+	ServerName <%= @sitename %>
+	ServerAlias www.<%= @sitename %>
+
+	DocumentRoot /web/sites/html/<%= @sitename %>
+
+    <Directory />
+            Options FollowSymLinks
+            AllowOverride None
+    </Directory>
+    <Directory /web/sites/html/<%= @sitename %>>
+            Options Indexes FollowSymLinks MultiViews
+            AllowOverride None
+            Order allow,deny
+            allow from all
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/<%= @sitename %>-error.log
+
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, emerg.
+    LogLevel warn
+
+    CustomLog ${APACHE_LOG_DIR}/<%= @sitename %>-access.log combined
+</VirtualHost>
